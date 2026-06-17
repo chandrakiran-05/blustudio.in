@@ -24,17 +24,17 @@ export default function Footer() {
   return (
     <footer ref={footerRef} style={{ position: 'relative', borderTop: '1px solid rgba(56,189,248,0.08)', background: 'transparent', overflow: 'hidden' }}>
       {/* Top shimmer */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(56,189,248,0.35), transparent)' }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(0,82,255,0.35), transparent)' }} />
       {/* Ambient bloom */}
-      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 50% 70% at 50% 100%, rgba(56,189,248,0.04) 0%, transparent 70%)' }} />
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 50% 70% at 50% 100%, rgba(0,82,255,0.04) 0%, transparent 70%)' }} />
 
       <div className="wrap" style={{ position: 'relative', zIndex: 2, padding: '3.5rem 2.5rem 2rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr', gap: '3.5rem', marginBottom: '2.5rem', paddingBottom: '2.5rem', borderBottom: '1px solid rgba(56,189,248,0.06)' }}>
+        <div className="footer-layout-grid" style={{ gap: '3.5rem', marginBottom: '2.5rem', paddingBottom: '2.5rem', borderBottom: '1px solid rgba(0,82,255,0.06)' }}>
 
           {/* Brand */}
           <div className="footer-col">
             <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.7rem', textDecoration: 'none', marginBottom: '1.25rem' }}>
-              <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #38BDF8, #0284C7)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 20px rgba(56,189,248,0.3)', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #0052FF, #003ECC)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 20px rgba(0,82,255,0.3)', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(145deg, rgba(255,255,255,0.2) 0%, transparent 60%)' }} />
                 <span style={{ fontFamily: 'var(--display)', fontWeight: 800, fontSize: '0.78rem', color: '#fff', position: 'relative' }}>B</span>
               </div>
@@ -45,7 +45,7 @@ export default function Footer() {
             <p style={{ fontFamily: 'var(--body)', fontSize: '0.83rem', fontWeight: 300, color: 'var(--t3)', lineHeight: 1.82, maxWidth: '260px' }}>
               AI automation studio building intelligent systems for ambitious businesses.
             </p>
-            <div style={{ marginTop: '1.25rem', display: 'inline-flex', alignItems: 'center', gap: '0.55rem', background: 'rgba(56,189,248,0.05)', border: '1px solid rgba(56,189,248,0.12)', borderRadius: '100px', padding: '0.3rem 0.75rem' }}>
+            <div style={{ marginTop: '1.25rem', display: 'inline-flex', alignItems: 'center', gap: '0.55rem', background: 'rgba(0,82,255,0.05)', border: '1px solid rgba(0,82,255,0.12)', borderRadius: '100px', padding: '0.3rem 0.75rem' }}>
               <div className="dot-live" />
               <span style={{ fontFamily: 'var(--mono)', fontSize: '0.46rem', letterSpacing: '0.18em', color: 'var(--accent)', opacity: 0.8 }}>SYSTEMS ONLINE</span>
             </div>
@@ -53,7 +53,7 @@ export default function Footer() {
 
           {/* Nav */}
           <nav className="footer-col">
-            <h3 style={{ fontFamily: 'var(--mono)', fontSize: '0.48rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(56,189,248,0.45)', marginBottom: '1.25rem' }}>Navigation</h3>
+            <h3 style={{ fontFamily: 'var(--mono)', fontSize: '0.48rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--t4)', marginBottom: '1.25rem' }}>Navigation</h3>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
               {NAV.map(([h, l]) => (
                 <li key={h}>
@@ -68,7 +68,7 @@ export default function Footer() {
 
           {/* Connect */}
           <div className="footer-col">
-            <h3 style={{ fontFamily: 'var(--mono)', fontSize: '0.48rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(56,189,248,0.45)', marginBottom: '1.25rem' }}>Connect</h3>
+            <h3 style={{ fontFamily: 'var(--mono)', fontSize: '0.48rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--t4)', marginBottom: '1.25rem' }}>Connect</h3>
             <a href="mailto:hello@bluagency.io" style={{ display: 'block', fontFamily: 'var(--body)', fontSize: '0.85rem', color: 'var(--t3)', textDecoration: 'none', marginBottom: '0.85rem', transition: 'color 0.25s' }}
               onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
               onMouseLeave={e => e.currentTarget.style.color = 'var(--t3)'}
@@ -86,10 +86,10 @@ export default function Footer() {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.46rem', letterSpacing: '0.18em', color: 'rgba(56,189,248,0.18)' }}>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.46rem', letterSpacing: '0.18em', color: 'var(--t3)' }}>
             © {new Date().getFullYear()} BLU AGENCY. ALL RIGHTS RESERVED.
           </p>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.46rem', letterSpacing: '0.16em', color: 'rgba(56,189,248,0.18)' }}>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.46rem', letterSpacing: '0.16em', color: 'var(--t3)' }}>
             INTELLIGENCE · ENGINEERED
           </p>
         </div>

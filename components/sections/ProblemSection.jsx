@@ -35,9 +35,9 @@ function ScanRow({ row, index, active }) {
         gridTemplateColumns: '1.5fr 1fr 1fr 120px',
         gap: '1rem',
         padding: '0.9rem 1.5rem',
-        borderBottom: '1px solid rgba(56, 189, 248, 0.04)',
+        borderBottom: '1px solid rgba(0, 82, 255, 0.04)',
         alignItems: 'center',
-        background: automated ? 'rgba(56, 189, 248, 0.02)' : 'transparent',
+        background: automated ? 'rgba(0, 82, 255, 0.02)' : 'transparent',
         transition: 'background 0.5s ease',
         position: 'relative',
       }}
@@ -68,7 +68,7 @@ function ScanRow({ row, index, active }) {
       {/* Cost state */}
       <span style={{
         fontFamily: 'var(--mono)', fontSize: '0.62rem',
-        color: automated ? 'rgba(56, 189, 248, 0.65)' : 'rgba(248, 113, 113, 0.85)',
+        color: automated ? 'rgba(0, 82, 255, 0.75)' : 'rgba(248, 113, 113, 0.85)',
         transition: 'color 0.5s'
       }}>
         {automated ? '→ $0 lost' : row.cost}
@@ -81,7 +81,7 @@ function ScanRow({ row, index, active }) {
           background: automated ? 'var(--accent)' : 'rgba(248, 113, 113, 0.85)',
           boxShadow: automated ? '0 0 8px var(--accent)' : '0 0 6px rgba(248, 113, 113, 0.6)',
           transition: 'all 0.5s',
-          animation: automated ? 'sky-ripple 2s infinite' : 'none'
+          animation: automated ? 'ripple 2s infinite' : 'none'
         }} />
         <span style={{
           fontFamily: 'var(--mono)', fontSize: '0.54rem', fontWeight: 700, letterSpacing: '0.1em',
@@ -129,12 +129,12 @@ export default function ProblemSection() {
       {/* Decorative background ambient flare */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(circle at 75% 50%, rgba(56, 189, 248, 0.04) 0%, transparent 60%)',
+        background: 'radial-gradient(circle at 75% 50%, rgba(0, 82, 255, 0.04) 0%, transparent 60%)',
         zIndex: 1
       }} />
 
       <div className="wrap" style={{ zIndex: 2 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: '5rem', alignItems: 'center' }}>
+        <div className="problem-layout-grid" style={{ gap: '5rem', alignItems: 'center' }}>
           
           {/* Left copy column */}
           <div ref={leftColRef}>
@@ -158,23 +158,23 @@ export default function ProblemSection() {
           {/* Right Live scan console column */}
           <div ref={rightColRef}>
             <div className="glass-panel" style={{
-              border: '1px solid rgba(56, 189, 248, 0.12)',
+              border: '1px solid var(--border)',
               overflow: 'hidden',
-              boxShadow: '0 24px 60px rgba(0,0,0,0.65), 0 0 0 1px rgba(56,189,248,0.04) inset'
+              boxShadow: '0 15px 35px rgba(14, 165, 233, 0.08), 0 0 0 1px var(--border) inset'
             }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(56,189,248,0.4), transparent)' }} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, var(--border), transparent)' }} />
               
               {/* Header bar */}
               <div style={{
-                background: 'rgba(5, 10, 18, 0.95)',
-                borderBottom: '1px solid rgba(56, 189, 248, 0.08)',
+                background: 'var(--bg-deep)',
+                borderBottom: '1px solid var(--border)',
                 padding: '0.8rem 1.5rem',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '1rem'
               }}>
                 <div style={{ display: 'flex', gap: '0.35rem' }}>
-                  {['#F87171', '#FBBF24', '#38BDF8'].map((bg, idx) => (
+                  {['#F87171', '#FBBF24', '#0052FF'].map((bg, idx) => (
                     <div key={idx} style={{ width: '8px', height: '8px', borderRadius: '50%', background: bg, opacity: 0.8 }} />
                   ))}
                 </div>
@@ -190,8 +190,8 @@ export default function ProblemSection() {
                 gridTemplateColumns: '1.5fr 1fr 1fr 120px',
                 gap: '1rem',
                 padding: '0.7rem 1.5rem',
-                background: 'rgba(5, 10, 18, 0.6)',
-                borderBottom: '1px solid rgba(56, 189, 248, 0.06)'
+                background: 'rgba(255, 255, 255, 0.6)',
+                borderBottom: '1px solid var(--border)'
               }}>
                 {['PROCESS', 'WORKLOAD', 'EST_LOSS', 'STATE'].map(th => (
                   <span key={th} style={{ fontFamily: 'var(--mono)', fontSize: '0.48rem', letterSpacing: '0.2em', color: 'var(--t4)', textTransform: 'uppercase' }}>
@@ -201,7 +201,7 @@ export default function ProblemSection() {
               </div>
 
               {/* Rows */}
-              <div style={{ background: 'rgba(1, 3, 6, 0.4)' }}>
+              <div style={{ background: 'rgba(255, 255, 255, 0.3)' }}>
                 {ROWS.map((row, idx) => (
                   <ScanRow key={row.process} row={row} index={idx} active={inView} />
                 ))}
@@ -210,7 +210,7 @@ export default function ProblemSection() {
               {/* Total Loss / Footer */}
               <div style={{
                 padding: '1rem 1.5rem',
-                borderTop: '1px solid rgba(56, 189, 248, 0.08)',
+                borderTop: '1px solid var(--border)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -232,6 +232,13 @@ export default function ProblemSection() {
           </div>
 
         </div>
+      </div>
+
+      {/* Bottom connecting line */}
+      <div style={{ display: 'flex', justifyContent: 'center', margin: '2.5rem 0 -6.5rem', position: 'relative', zIndex: 10 }}>
+        <svg width="2" height="120" viewBox="0 0 2 120" fill="none" style={{ overflow: 'visible' }}>
+          <path d="M1,0 L1,120" stroke="var(--accent)" strokeWidth="2" strokeDasharray="5 3" className="glow-path" />
+        </svg>
       </div>
     </section>
   );

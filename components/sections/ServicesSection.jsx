@@ -13,8 +13,8 @@ const SERVICES = [
     title: 'AI Workflow Automation',
     desc: 'We map your operation and automate every manual pipeline — CRM syncing, email sequence triggers, invoice creation, client onboarding, and data entry.',
     bullets: ['n8n · Make · Custom API integrations', 'Lead routing & pipeline syncs', 'Intelligent CRM update engines', 'Document & report generator systems'],
-    color: '#38BDF8', glow: 'rgba(56,189,248,0.22)',
-    bg: 'linear-gradient(135deg, rgba(56,189,248,0.08) 0%, rgba(56,189,248,0.01) 100%)',
+    color: '#0052FF', glow: 'rgba(0,82,255,0.22)',
+    bg: 'linear-gradient(135deg, rgba(0,82,255,0.08) 0%, rgba(0,82,255,0.01) 100%)',
     icon: (<svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.5" /><circle cx="6" cy="24" r="3.5" stroke="currentColor" strokeWidth="1.5" /><circle cx="26" cy="24" r="3.5" stroke="currentColor" strokeWidth="1.5" /><path d="M16 11.5v5M13.2 18.2L8.5 21M18.8 18.2L23.5 21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>),
   },
   {
@@ -22,8 +22,8 @@ const SERVICES = [
     title: 'Web Dev & AI Integration',
     desc: 'High-speed modern websites configured with intelligent lead capture, custom chatbot qualifying agents, and automated database entries.',
     bullets: ['Next.js · Zero-friction performance', 'Tailored AI support assistant agents', 'Automated customer intake pipelines', 'SEO analytics dashboard setup'],
-    color: '#0EA5E9', glow: 'rgba(14,165,233,0.22)',
-    bg: 'linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(14,165,233,0.01) 100%)',
+    color: '#0066FF', glow: 'rgba(0,102,255,0.22)',
+    bg: 'linear-gradient(135deg, rgba(0,102,255,0.08) 0%, rgba(0,102,255,0.01) 100%)',
     icon: (<svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect x="2" y="6" width="28" height="20" rx="3.5" stroke="currentColor" strokeWidth="1.5" /><path d="M2 11h28" stroke="currentColor" strokeWidth="1.5" /><circle cx="6.5" cy="8.5" r="1.2" fill="currentColor" /></svg>),
   },
   {
@@ -31,8 +31,8 @@ const SERVICES = [
     title: 'Social Media AI Agents',
     desc: 'Intelligent automation systems that monitor trends, generate original assets, schedule calendar updates, and engage organic leads.',
     bullets: ['AI calendar scheduling engines', 'Trend scanning & topic generators', 'Automated DM response triggers', 'Audience engagement pipelines'],
-    color: '#0284C7', glow: 'rgba(2,132,199,0.22)',
-    bg: 'linear-gradient(135deg, rgba(2,132,199,0.08) 0%, rgba(2,132,199,0.01) 100%)',
+    color: '#003ECC', glow: 'rgba(0,62,204,0.22)',
+    bg: 'linear-gradient(135deg, rgba(0,62,204,0.08) 0%, rgba(0,62,204,0.01) 100%)',
     icon: (<svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M4 24L12 15l5.5 5.5 5.5-7 6 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M25 4v7h-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>),
   },
 ];
@@ -84,18 +84,18 @@ function ServiceCard({ s, index }) {
       style={{ perspective: 1200, transformStyle: 'preserve-3d' }}
     >
       <motion.div
+        className="service-card-grid"
         style={{
           rotateX: sX, rotateY: sY,
-          display: 'grid', gridTemplateColumns: '1.2fr 1fr',
           gap: '3rem', padding: '2.5rem 3rem',
-          border: '1px solid rgba(56, 189, 248, 0.1)',
+          border: '1px solid var(--border)',
           borderRadius: '16px', alignItems: 'start',
           backdropFilter: 'blur(20px)',
-          background: hovered ? s.bg : 'rgba(5, 10, 18, 0.5)',
-          borderColor: hovered ? s.color : 'rgba(56, 189, 248, 0.08)',
+          background: hovered ? s.bg : 'rgba(255, 255, 255, 0.65)',
+          borderColor: hovered ? s.color : 'var(--border)',
           boxShadow: hovered 
-            ? `0 30px 60px rgba(0,0,0,0.65), 0 0 0 1px ${s.glow} inset` 
-            : '0 8px 30px rgba(0,0,0,0.45)',
+            ? `0 20px 45px rgba(0, 82, 255, 0.1), 0 0 0 1px ${s.glow} inset` 
+            : '0 8px 25px rgba(0, 82, 255, 0.04)',
           position: 'relative', overflow: 'hidden',
           transition: 'background 0.4s, border-color 0.4s, box-shadow 0.4s'
         }}
@@ -108,7 +108,7 @@ function ServiceCard({ s, index }) {
         {/* Left column */}
         <div>
           <motion.div
-            animate={{ color: hovered ? s.color : 'rgba(56, 189, 248, 0.35)', scale: hovered ? 1.08 : 1 }}
+            animate={{ color: hovered ? s.color : 'var(--t4)', scale: hovered ? 1.08 : 1 }}
             transition={{ duration: 0.3 }}
             style={{ display: 'flex', marginBottom: '1.5rem', width: 'fit-content' }}
           >
@@ -117,7 +117,7 @@ function ServiceCard({ s, index }) {
           <div style={{ fontFamily: 'var(--mono)', fontSize: '0.48rem', letterSpacing: '0.26em', textTransform: 'uppercase', color: hovered ? s.color : 'var(--accent)', marginBottom: '0.75rem', opacity: hovered ? 0.95 : 0.6, transition: 'color 0.3s' }}>
             {s.tag}
           </div>
-          <h3 className="display" style={{ fontSize: 'clamp(1.4rem, 2.2vw, 2.1rem)', color: hovered ? '#FFFFFF' : 'var(--t2)', marginBottom: '1rem', transition: 'color 0.3s' }}>
+          <h3 className="display" style={{ fontSize: 'clamp(1.4rem, 2.2vw, 2.1rem)', color: hovered ? 'var(--text)' : 'var(--t2)', marginBottom: '1rem', transition: 'color 0.3s' }}>
             {s.title}
           </h3>
           <p style={{ fontFamily: 'var(--body)', fontSize: '0.86rem', fontWeight: 300, color: 'var(--t3)', lineHeight: 1.75 }}>
@@ -170,7 +170,7 @@ export default function ServicesSection() {
       {/* Background radial flare */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(circle at 10% 50%, rgba(14,165,233,0.03) 0%, transparent 60%)',
+        background: 'radial-gradient(circle at 10% 50%, rgba(0,82,255,0.03) 0%, transparent 60%)',
         zIndex: 1
       }} />
 
@@ -199,6 +199,13 @@ export default function ServicesSection() {
           ))}
         </div>
 
+      </div>
+
+      {/* Bottom connecting line */}
+      <div style={{ display: 'flex', justifyContent: 'center', margin: '3.5rem 0 -6.5rem', position: 'relative', zIndex: 10 }}>
+        <svg width="2" height="120" viewBox="0 0 2 120" fill="none" style={{ overflow: 'visible' }}>
+          <path d="M1,0 L1,120" stroke="var(--accent)" strokeWidth="2" strokeDasharray="5 3" className="glow-path" />
+        </svg>
       </div>
     </section>
   );

@@ -43,16 +43,17 @@ export default function Navbar() {
         transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         role="navigation"
         aria-label="Main navigation"
+        className="nav-container"
         style={{
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9990,
-          padding: '0 2.5rem', height: '68px',
+          height: '68px',
           display: 'flex', alignItems: 'center',
           background: scrolled
-            ? 'rgba(3,8,15,0.88)'
+            ? 'rgba(248, 250, 252, 0.88)'
             : 'transparent',
           backdropFilter: scrolled ? 'blur(24px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(24px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(56,189,248,0.08)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(0, 82, 255, 0.12)' : 'none',
           transition: 'background 0.5s, backdrop-filter 0.5s, border-color 0.5s',
         }}
       >
@@ -60,7 +61,7 @@ export default function Navbar() {
         {scrolled && (
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, height: '1px',
-            background: 'linear-gradient(90deg, transparent, rgba(56,189,248,0.3), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(0, 82, 255, 0.3), transparent)',
             pointerEvents: 'none',
           }} />
         )}
@@ -73,9 +74,9 @@ export default function Navbar() {
         >
           <div style={{
             width: '32px', height: '32px', borderRadius: '8px',
-            background: 'linear-gradient(135deg, #38BDF8, #0284C7)',
+            background: 'linear-gradient(135deg, #0052FF, #003ECC)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 0 20px rgba(56,189,248,0.35)',
+            boxShadow: '0 0 20px rgba(0, 82, 255, 0.35)',
             position: 'relative', overflow: 'hidden',
           }}>
             {/* Inner specular */}
@@ -95,11 +96,7 @@ export default function Navbar() {
 
         {/* Desktop nav links with hover indicator */}
         <div
-          style={{
-            display: 'flex', alignItems: 'center', gap: '0.25rem',
-            marginLeft: 'auto', marginRight: '2.5rem',
-            position: 'relative',
-          }}
+          className="nav-links-desktop"
           onMouseLeave={handleMouseLeave}
         >
           {/* Sliding hover pill */}
@@ -109,8 +106,8 @@ export default function Navbar() {
               x: sIndX, width: sIndW,
               transform: 'translateY(-50%)',
               height: '32px', borderRadius: '6px',
-              background: 'rgba(56,189,248,0.08)',
-              border: '1px solid rgba(56,189,248,0.15)',
+              background: 'rgba(0, 82, 255, 0.06)',
+              border: '1px solid rgba(0, 82, 255, 0.15)',
               pointerEvents: 'none',
               opacity: activeLink ? 1 : 0,
               transition: 'opacity 0.2s',
@@ -136,7 +133,7 @@ export default function Navbar() {
         </div>
 
         {/* CTA */}
-        <a href="#contact" className="btn-primary" style={{ fontSize: '0.7rem', padding: '0.65rem 1.4rem' }}>
+        <a href="#contact" className="btn-primary hide-mobile" style={{ fontSize: '0.7rem', padding: '0.65rem 1.4rem' }}>
           Free Audit
           <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
             <path d="M1 5.5h9M5.5 1.5l4 4-4 4" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
@@ -148,8 +145,9 @@ export default function Navbar() {
           onClick={() => setMOpen(o => !o)}
           aria-label="Toggle menu"
           aria-expanded={mOpen}
+          className="hamburger-btn"
           style={{
-            display: 'none', background: 'none', border: 'none',
+            background: 'none', border: 'none',
             cursor: 'pointer', padding: '0.5rem', marginLeft: '1rem',
             color: 'var(--text)',
           }}
@@ -172,7 +170,7 @@ export default function Navbar() {
             exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
             style={{
               position: 'fixed', inset: 0, zIndex: 9989,
-              background: 'rgba(3,8,15,0.96)',
+              background: 'rgba(248, 250, 252, 0.96)',
               display: 'flex', flexDirection: 'column',
               alignItems: 'center', justifyContent: 'center', gap: '2rem',
             }}

@@ -72,11 +72,11 @@ export default function ContactSection() {
 
   const inputStyle = (field) => ({
     width: '100%',
-    background: 'rgba(56, 189, 248, 0.03)',
-    border: `1px solid ${errors[field] ? 'rgba(248, 113, 113, 0.45)' : 'rgba(56, 189, 248, 0.12)'}`,
+    background: 'rgba(255, 255, 255, 0.8)',
+    border: `1px solid ${errors[field] ? 'rgba(248, 113, 113, 0.45)' : 'var(--border)'}`,
     borderRadius: '8px',
     padding: '0.85rem 1.25rem',
-    color: '#FFFFFF',
+    color: 'var(--text)',
     fontFamily: 'var(--body)',
     fontSize: '0.86rem',
     fontWeight: 300,
@@ -100,19 +100,19 @@ export default function ContactSection() {
       {/* Background radial overlay */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.035) 0%, transparent 70%)',
+        background: 'radial-gradient(circle at 50% 50%, rgba(0, 82, 255, 0.035) 0%, transparent 70%)',
         zIndex: 1
       }} />
 
       <div className="wrap" style={{ zIndex: 2 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: '5rem', alignItems: 'start' }}>
+        <div className="contact-layout-grid" style={{ gap: '5rem', alignItems: 'start' }}>
           
           {/* Left Column info */}
           <div ref={leftColRef}>
             <div style={{ marginBottom: '1.25rem' }}>
               <span className="eyebrow">DIAGNOSTIC PORTAL</span>
             </div>
-            <h2 className="display" style={{ fontSize: 'clamp(2.1rem, 3.8vw, 3.8rem)', color: '#FFFFFF', lineHeight: 0.95, marginBottom: '1.5rem' }}>
+            <h2 className="display" style={{ fontSize: 'clamp(2.1rem, 3.8vw, 3.8rem)', color: 'var(--text)', lineHeight: 0.95, marginBottom: '1.5rem' }}>
               Free 30-min<br /><span className="electric">automation</span><br />system audit.
             </h2>
             <p style={{ fontFamily: 'var(--body)', fontSize: '0.9rem', fontWeight: 300, color: 'var(--t2)', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '400px' }}>
@@ -131,8 +131,8 @@ export default function ContactSection() {
                 >
                   <div style={{
                     width: '18px', height: '18px', borderRadius: '50%',
-                    border: '1px solid rgba(56, 189, 248, 0.25)',
-                    background: 'rgba(56, 189, 248, 0.05)',
+                    border: '1px solid rgba(0, 82, 255, 0.25)',
+                    background: 'rgba(0, 82, 255, 0.05)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
                   }}>
                     <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2.5 2.5 4-4" stroke="var(--accent)" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -151,9 +151,9 @@ export default function ContactSection() {
                 Book Audit on Calendly
               </a>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ flex: 1, height: '1px', background: 'rgba(56, 189, 248, 0.08)' }} />
+                <div style={{ flex: 1, height: '1px', background: 'rgba(0, 82, 255, 0.08)' }} />
                 <span style={{ fontFamily: 'var(--mono)', fontSize: '0.46rem', letterSpacing: '0.2em', color: 'var(--t4)' }}>OR</span>
-                <div style={{ flex: 1, height: '1px', background: 'rgba(56, 189, 248, 0.08)' }} />
+                <div style={{ flex: 1, height: '1px', background: 'rgba(0, 82, 255, 0.08)' }} />
               </div>
               <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ justifyContent: 'center', borderRadius: '10px' }}>
                 Message on WhatsApp
@@ -161,10 +161,10 @@ export default function ContactSection() {
             </div>
 
             {/* Footer Connect details */}
-            <div style={{ marginTop: '2.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(56, 189, 248, 0.08)', display: 'flex', gap: '3rem' }}>
+            <div style={{ marginTop: '2.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(0, 82, 255, 0.1)', display: 'flex', gap: '3rem' }}>
               {[{ title: 'DIRECT_SECURE_MAIL', value: 'hello@bluagency.io' }, { title: 'RESPONSE_SLA', value: 'Within 24 Hours' }].map(({ title, value }) => (
                 <div key={title}>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: '0.45rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(56, 189, 248, 0.45)', marginBottom: '0.3rem' }}>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: '0.45rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--t4)', marginBottom: '0.3rem' }}>
                     {title}
                   </div>
                   <div style={{ fontFamily: 'var(--display)', fontSize: '0.84rem', fontWeight: 500, color: 'var(--t2)' }}>
@@ -183,15 +183,15 @@ export default function ContactSection() {
               transition={{ type: 'spring', stiffness: 100, damping: 18 }}
               className="glass-panel"
               style={{
-                border: '1px solid rgba(56, 189, 248, 0.12)',
+                border: '1px solid var(--border)',
                 padding: '2.5rem',
-                boxShadow: '0 24px 60px rgba(0,0,0,0.65)',
+                boxShadow: '0 15px 35px rgba(14, 165, 233, 0.08), 0 0 0 1px var(--border) inset',
                 position: 'relative',
                 overflow: 'hidden',
                 transformStyle: 'preserve-3d'
               }}
             >
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.45), transparent)' }} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, var(--accent), transparent)' }} />
               
               {status === 'success' ? (
                 <div style={{ textAlign: 'center', padding: '3.5rem 0' }}>
@@ -201,16 +201,16 @@ export default function ContactSection() {
                     transition={{ type: 'spring', stiffness: 200 }}
                     style={{
                       width: '56px', height: '56px', borderRadius: '50%',
-                      border: '1px solid rgba(56, 189, 248, 0.35)',
-                      background: 'rgba(56, 189, 248, 0.05)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      margin: '0 auto 1.5rem',
-                      boxShadow: '0 0 30px rgba(56, 189, 248, 0.2)'
-                    }}
-                  >
-                    <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M4 11l5 5 9-9" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </motion.div>
-                  <h3 style={{ fontFamily: 'var(--display)', fontSize: '1.35rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '0.65rem' }}>
+                    border: '1px solid var(--accent)',
+                    background: 'rgba(14, 165, 233, 0.05)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    margin: '0 auto 1.5rem',
+                    boxShadow: '0 0 20px var(--accent-glow)'
+                  }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M4 11l5 5 9-9" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </motion.div>
+                <h3 style={{ fontFamily: 'var(--display)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.65rem' }}>
                     TRANSMISSION COMPLETE
                   </h3>
                   <p style={{ fontFamily: 'var(--body)', fontSize: '0.84rem', color: 'var(--t2)', lineHeight: 1.7 }}>
@@ -240,12 +240,12 @@ export default function ContactSection() {
                         placeholder={ph}
                         style={inputStyle(name)}
                         onFocus={e => {
-                          e.target.style.borderColor = 'rgba(56, 189, 248, 0.35)';
-                          e.target.style.background = 'rgba(56, 189, 248, 0.05)';
+                          e.target.style.borderColor = 'rgba(0, 82, 255, 0.35)';
+                          e.target.style.background = 'rgba(0, 82, 255, 0.05)';
                         }}
                         onBlur={e => {
-                          e.target.style.borderColor = errors[name] ? 'rgba(248, 113, 113, 0.45)' : 'rgba(56, 189, 248, 0.12)';
-                          e.target.style.background = 'rgba(56, 189, 248, 0.03)';
+                          e.target.style.borderColor = errors[name] ? 'rgba(248, 113, 113, 0.45)' : 'rgba(0, 82, 255, 0.12)';
+                          e.target.style.background = 'rgba(0, 82, 255, 0.03)';
                         }}
                       />
                       {errors[name] && (
@@ -268,12 +268,12 @@ export default function ContactSection() {
                       placeholder="List the repetitive workflows you want to automate..."
                       style={{ ...inputStyle('message'), resize: 'none' }}
                       onFocus={e => {
-                        e.target.style.borderColor = 'rgba(56, 189, 248, 0.35)';
-                        e.target.style.background = 'rgba(56, 189, 248, 0.05)';
+                        e.target.style.borderColor = 'rgba(0, 82, 255, 0.35)';
+                        e.target.style.background = 'rgba(0, 82, 255, 0.05)';
                       }}
                       onBlur={e => {
-                        e.target.style.borderColor = errors.message ? 'rgba(248, 113, 113, 0.45)' : 'rgba(56, 189, 248, 0.12)';
-                        e.target.style.background = 'rgba(56, 189, 248, 0.03)';
+                        e.target.style.borderColor = errors.message ? 'rgba(248, 113, 113, 0.45)' : 'rgba(0, 82, 255, 0.12)';
+                        e.target.style.background = 'rgba(0, 82, 255, 0.03)';
                       }}
                     />
                     {errors.message && (

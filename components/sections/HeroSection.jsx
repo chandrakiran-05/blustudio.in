@@ -74,10 +74,10 @@ function NeuralCanvas() {
               Math.hypot(mx - nodes[i].x, my - nodes[i].y),
               Math.hypot(mx - nodes[j].x, my - nodes[j].y)
             );
-            const alpha = (1 - d / 260) * 0.08 + Math.max(0, 1 - md / 180) * 0.25;
+            const alpha = (1 - d / 260) * 0.22 + Math.max(0, 1 - md / 180) * 0.45;
             const z = (nodes[i].z + nodes[j].z) / 2;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(56, 189, 248, ${alpha * z})`;
+            ctx.strokeStyle = `rgba(0, 82, 255, ${alpha * 1.6 * z})`;
             ctx.lineWidth = 0.6 * z;
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -94,14 +94,14 @@ function NeuralCanvas() {
         const x = na.x + (nb.x - na.x) * pk.p;
         const y = na.y + (nb.y - na.y) * pk.p;
         const g = ctx.createRadialGradient(x, y, 0, x, y, 12);
-        g.addColorStop(0, 'rgba(56, 189, 248, 0.95)');
-        g.addColorStop(1, 'rgba(56, 189, 248, 0)');
+        g.addColorStop(0, 'rgba(0, 82, 255, 0.95)');
+        g.addColorStop(1, 'rgba(0, 82, 255, 0)');
         ctx.beginPath();
         ctx.fillStyle = g;
         ctx.arc(x, y, 12, 0, Math.PI * 2);
         ctx.fill();
         ctx.beginPath();
-        ctx.fillStyle = '#38BDF8';
+        ctx.fillStyle = '#0052FF';
         ctx.arc(x, y, 2.4, 0, Math.PI * 2);
         ctx.fill();
         return true;
@@ -112,15 +112,15 @@ function NeuralCanvas() {
         const br = (0.5 + Math.sin(tick * 0.02 + n.ph) * 0.25 + prox * 0.9) * n.z;
         const r = n.r * n.z;
         const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 14);
-        g.addColorStop(0, `rgba(56, 189, 248, ${0.16 * br})`);
-        g.addColorStop(1, 'rgba(56, 189, 248, 0)');
+        g.addColorStop(0, `rgba(0, 82, 255, ${0.45 * br})`);
+        g.addColorStop(1, 'rgba(0, 82, 255, 0)');
         ctx.beginPath();
         ctx.fillStyle = g;
         ctx.arc(n.x, n.y, r * 14, 0, Math.PI * 2);
         ctx.fill();
         ctx.beginPath();
-        ctx.fillStyle = `rgba(56, 189, 248, ${0.82 * br})`;
-        ctx.shadowColor = '#38BDF8';
+        ctx.fillStyle = `rgba(0, 82, 255, ${0.95 * br})`;
+        ctx.shadowColor = '#0052FF';
         ctx.shadowBlur = 12 * br;
         ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
         ctx.fill();
@@ -193,20 +193,20 @@ function AutomationCard() {
         transition={{ duration: 1.4, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
         className="glass-panel"
         style={{
-          border: '1px solid rgba(56, 189, 248, 0.18)',
+          border: '1px solid var(--border)',
           padding: '2rem',
           width: '320px',
-          boxShadow: '0 32px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(56,189,248,0.08) inset',
+          boxShadow: '0 20px 45px rgba(14, 165, 233, 0.08), 0 0 0 1px var(--border) inset',
           position: 'relative',
           overflow: 'hidden',
           transformStyle: 'preserve-3d',
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(56,189,248,0.8), transparent)' }} />
-        <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '150px', height: '150px', background: 'radial-gradient(circle, rgba(56,189,248,0.2), transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, var(--accent), transparent)' }} />
+        <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '150px', height: '150px', background: 'radial-gradient(circle, var(--accent-glow), transparent 70%)', pointerEvents: 'none' }} />
 
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(56,189,248,0.1)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid var(--border)' }}>
           <div className="dot-live" />
           <span style={{ fontFamily: 'var(--mono)', fontSize: '0.55rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)' }}>SYSTEMS_LIVE</span>
           <span style={{ marginLeft: 'auto', fontFamily: 'var(--mono)', fontSize: '0.5rem', color: 'var(--t4)' }}>#B098</span>
@@ -217,14 +217,14 @@ function AutomationCard() {
           {steps.map((s, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem', paddingBottom: '0.9rem', position: 'relative' }}>
               {i < steps.length - 1 && (
-                <div style={{ position: 'absolute', left: '6px', top: '15px', width: '1px', height: '100%', background: 'linear-gradient(180deg, rgba(56,189,248,0.3), transparent)' }} />
+                <div style={{ position: 'absolute', left: '6px', top: '15px', width: '1px', height: '100%', background: 'linear-gradient(180deg, rgba(0, 82, 255, 0.3), transparent)' }} />
               )}
               <div style={{
                 width: '13px', height: '13px', borderRadius: '50%', flexShrink: 0, marginTop: '2px',
-                border: `1.5px solid ${s.active || s.done ? 'var(--accent)' : 'rgba(56,189,248,0.2)'}`,
-                background: s.active ? 'rgba(56,189,248,0.12)' : 'transparent',
+                border: `1.5px solid ${s.active || s.done ? 'var(--accent)' : 'var(--border)'}`,
+                background: s.active ? 'rgba(0, 82, 255, 0.12)' : 'transparent',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: s.active ? '0 0 10px rgba(56,189,248,0.6)' : 'none',
+                boxShadow: s.active ? '0 0 10px rgba(0, 82, 255, 0.6)' : 'none',
               }}>
                 {s.done && <svg width="6" height="6" viewBox="0 0 6 6" fill="none"><path d="M1 3l1.5 1.5 2.5-2.5" stroke="var(--accent)" strokeWidth="1.4" strokeLinecap="round" /></svg>}
                 {s.active && <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--accent)' }} />}
@@ -237,10 +237,10 @@ function AutomationCard() {
         </div>
 
         {/* Stats footer */}
-        <div style={{ marginTop: '0.5rem', paddingTop: '1.2rem', borderTop: '1px solid rgba(56,189,248,0.1)', display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ marginTop: '0.5rem', paddingTop: '1.2rem', borderTop: '1px solid rgba(0, 82, 255, 0.1)', display: 'flex', justifyContent: 'space-between' }}>
           {[['982', 'workflows'], ['14.2h', 'saved/wk']].map(([v, l]) => (
             <div key={l}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent)', textShadow: '0 0 15px rgba(56,189,248,0.5)' }}>{v}</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent)', textShadow: '0 0 15px rgba(0, 82, 255, 0.5)' }}>{v}</div>
               <div style={{ fontFamily: 'var(--mono)', fontSize: '0.45rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--t4)', marginTop: '0.15rem' }}>{l}</div>
             </div>
           ))}
@@ -297,11 +297,11 @@ export default function HeroSection() {
       {/* 3D background node animation */}
       <div ref={bgRef} style={{ position: 'absolute', inset: '-20%', willChange: 'transform', zIndex: 1 }}>
         <NeuralCanvas />
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, transparent 20%, #000000 90%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(248, 250, 252, 0.45) 75%, var(--bg) 95%)' }} />
       </div>
 
       <div className="wrap" style={{ zIndex: 10, paddingTop: '7rem', paddingBottom: '3rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
+        <div className="hero-layout-grid" style={{ gap: '3.5rem', alignItems: 'center' }}>
           
           {/* Typographic Hero Text Grid-Aligned */}
           <div>
@@ -359,14 +359,12 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator cue */}
-      <div style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.45rem' }}>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: '0.42rem', letterSpacing: '0.3em', color: 'var(--t4)', textTransform: 'uppercase' }}>SCROLL</span>
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ width: '1px', height: '36px', background: 'linear-gradient(to bottom, var(--accent), transparent)' }}
-        />
+      {/* Scroll indicator cue & connecting line */}
+      <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.45rem' }}>
+        <span style={{ fontFamily: 'var(--mono)', fontSize: '0.42rem', letterSpacing: '0.3em', color: 'var(--t3)', textTransform: 'uppercase' }}>SCROLL</span>
+        <svg width="2" height="120" viewBox="0 0 2 120" fill="none" style={{ overflow: 'visible' }}>
+          <path d="M1,0 L1,120" stroke="var(--accent)" strokeWidth="2" strokeDasharray="5 3" className="glow-path" />
+        </svg>
       </div>
     </section>
   );
