@@ -39,10 +39,10 @@ const STEPS = [
 ];
 
 const STATS = [
-  { value: 880, suffix: '+', label: 'Systems Deployed', prefix: '', color: '#0052FF' },
-  { value: 45,  suffix: 'h', label: 'Hours Reclaimed /mo',  prefix: '', color: '#0066FF' },
-  { value: 98,  suffix: '%', label: 'Client Retention',     prefix: '', color: '#003ECC' },
-  { value: 2.6, suffix: 'M', label: 'Tasks Automated',      prefix: '', color: '#002C99' },
+  { value: 3,   suffix: '+ Yrs', label: 'Established History', prefix: '', color: '#0052FF' },
+  { value: 880, suffix: '+',     label: 'Systems Deployed',    prefix: '', color: '#0066FF' },
+  { value: 98,  suffix: '%',     label: 'Client Retention',   prefix: '', color: '#003ECC' },
+  { value: 2.6, suffix: 'M',     label: 'Tasks Automated',    prefix: '', color: '#002C99' },
 ];
 
 const REVIEWS = [

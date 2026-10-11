@@ -188,9 +188,9 @@ function AutomationCard() {
   return (
     <TiltCard>
       <motion.div
-        initial={{ opacity: 0, y: 70, rotateX: -22 }}
+        initial={{ opacity: 0, y: 30, rotateX: -10 }}
         animate={{ opacity: 1, y: 0, rotateX: 0 }}
-        transition={{ duration: 1.4, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
         className="glass-panel"
         style={{
           border: '1px solid var(--border)',
@@ -279,13 +279,13 @@ export default function HeroSection() {
       );
 
       gsap.fromTo(descRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }
       );
 
       gsap.fromTo(statsRef.current.children,
         { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, delay: 0.8, ease: 'easeOut' }
+        { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, delay: 0.25, ease: 'easeOut' }
       );
     }, sectionRef);
 
@@ -305,8 +305,22 @@ export default function HeroSection() {
           
           {/* Typographic Hero Text Grid-Aligned */}
           <div>
-            <div style={{ marginBottom: '1.75rem' }}>
-              <span className="eyebrow">AI AUTOMATION STUDIO</span>
+            <div style={{ marginBottom: '1.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <span className="eyebrow">ESTABLISHED AI AUTOMATION STUDIO</span>
+              <span style={{
+                fontFamily: 'var(--mono)',
+                fontSize: '0.55rem',
+                letterSpacing: '0.14em',
+                padding: '0.22rem 0.65rem',
+                borderRadius: '999px',
+                background: 'rgba(0, 82, 255, 0.08)',
+                border: '1px solid rgba(0, 82, 255, 0.22)',
+                color: 'var(--accent)',
+                fontWeight: 700,
+                textTransform: 'uppercase'
+              }}>
+                EST. 2023 · 3+ YEARS IN PRODUCTION
+              </span>
             </div>
             
             <div ref={titleRef}>
@@ -322,8 +336,8 @@ export default function HeroSection() {
             </div>
 
             <div ref={descRef}>
-              <p style={{ fontFamily: 'var(--body)', fontSize: 'clamp(0.92rem, 1.2vw, 1.05rem)', fontWeight: 300, color: 'var(--t2)', lineHeight: 1.8, maxWidth: '460px', marginBottom: '2.5rem' }}>
-                We build intelligent AI workflows that run silently in the background, connecting your systems, reducing human error, and scaling operations on autopilot.
+              <p style={{ fontFamily: 'var(--body)', fontSize: 'clamp(0.92rem, 1.2vw, 1.05rem)', fontWeight: 300, color: 'var(--t2)', lineHeight: 1.8, maxWidth: '480px', marginBottom: '2.5rem' }}>
+                With over 3 years of proven operational experience, we build battle-tested AI workflows that run silently in the background — eliminating manual friction, connecting complex systems, and scaling enterprises with seasoned reliability.
               </p>
 
               {/* Call to Action Buttons */}
@@ -332,15 +346,20 @@ export default function HeroSection() {
                   Book Free Audit
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </a>
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                <a href="https://wa.me/919100894208" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
                   WhatsApp Us
                 </a>
               </div>
             </div>
 
             {/* Systems Status Live Widgets */}
-            <div ref={statsRef} style={{ display: 'flex', alignItems: 'center', gap: '2.2rem', flexWrap: 'wrap' }}>
-              {[['980+', 'Automations Running'], ['99.99%', 'System Uptime'], ['45h', 'Saved Monthly']].map(([v, l]) => (
+            <div ref={statsRef} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap', maxWidth: '540px' }}>
+              {[
+                ['3+ YRS', 'Track Record'],
+                ['980+', 'Automations Running'],
+                ['99.99%', 'System Uptime'],
+                ['45h', 'Saved Monthly'],
+              ].map(([v, l]) => (
                 <div key={l} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
                   <div className="dot-live" />
                   <span style={{ fontFamily: 'var(--mono)', fontSize: '0.52rem', color: 'var(--t3)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
@@ -360,10 +379,10 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator cue & connecting line */}
-      <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.45rem' }}>
+      <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.35rem' }}>
         <span style={{ fontFamily: 'var(--mono)', fontSize: '0.42rem', letterSpacing: '0.3em', color: 'var(--t3)', textTransform: 'uppercase' }}>SCROLL</span>
-        <svg width="2" height="120" viewBox="0 0 2 120" fill="none" style={{ overflow: 'visible' }}>
-          <path d="M1,0 L1,120" stroke="var(--accent)" strokeWidth="2" strokeDasharray="5 3" className="glow-path" />
+        <svg width="2" height="60" viewBox="0 0 2 60" fill="none" style={{ overflow: 'visible' }}>
+          <path d="M1,0 L1,60" stroke="var(--accent)" strokeWidth="2" strokeDasharray="5 3" className="glow-path" />
         </svg>
       </div>
     </section>

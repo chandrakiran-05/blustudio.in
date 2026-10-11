@@ -39,11 +39,11 @@ export default function Footer() {
                 <span style={{ fontFamily: 'var(--display)', fontWeight: 800, fontSize: '0.78rem', color: '#fff', position: 'relative' }}>B</span>
               </div>
               <span style={{ fontFamily: 'var(--display)', fontWeight: 700, fontSize: '0.92rem', letterSpacing: '-0.02em', color: 'var(--text)' }}>
-                BLU <span style={{ color: 'var(--accent)', fontWeight: 400 }}>AGENCY</span>
+                BLU <span style={{ color: 'var(--accent)', fontWeight: 400 }}>STUDIO</span>
               </span>
             </a>
             <p style={{ fontFamily: 'var(--body)', fontSize: '0.83rem', fontWeight: 300, color: 'var(--t3)', lineHeight: 1.82, maxWidth: '260px' }}>
-              AI automation studio building intelligent systems for ambitious businesses.
+              Established in 2023 — a seasoned AI automation studio engineering battle-tested systems for ambitious businesses.
             </p>
             <div style={{ marginTop: '1.25rem', display: 'inline-flex', alignItems: 'center', gap: '0.55rem', background: 'rgba(0,82,255,0.05)', border: '1px solid rgba(0,82,255,0.12)', borderRadius: '100px', padding: '0.3rem 0.75rem' }}>
               <div className="dot-live" />
@@ -69,13 +69,19 @@ export default function Footer() {
           {/* Connect */}
           <div className="footer-col">
             <h3 style={{ fontFamily: 'var(--mono)', fontSize: '0.48rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--t4)', marginBottom: '1.25rem' }}>Connect</h3>
-            <a href="mailto:hello@bluagency.io" style={{ display: 'block', fontFamily: 'var(--body)', fontSize: '0.85rem', color: 'var(--t3)', textDecoration: 'none', marginBottom: '0.85rem', transition: 'color 0.25s' }}
+            <a href="mailto:chandra@blustudio.in" style={{ display: 'block', fontFamily: 'var(--body)', fontSize: '0.85rem', color: 'var(--t3)', textDecoration: 'none', marginBottom: '0.65rem', transition: 'color 0.25s' }}
               onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
               onMouseLeave={e => e.currentTarget.style.color = 'var(--t3)'}
             >
-              hello@bluagency.io
+              chandra@blustudio.in
             </a>
-            <a href="https://wa.me/1234567890" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontFamily: 'var(--body)', fontSize: '0.85rem', color: '#4ade80', textDecoration: 'none', transition: 'opacity 0.25s' }}
+            <a href="tel:+919100894208" style={{ display: 'block', fontFamily: 'var(--body)', fontSize: '0.85rem', color: 'var(--t3)', textDecoration: 'none', marginBottom: '0.85rem', transition: 'color 0.25s' }}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--t3)'}
+            >
+              +91 91008 94208
+            </a>
+            <a href="https://wa.me/919100894208" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontFamily: 'var(--body)', fontSize: '0.85rem', color: '#4ade80', textDecoration: 'none', transition: 'opacity 0.25s' }}
               onMouseEnter={e => e.currentTarget.style.opacity = '0.65'}
               onMouseLeave={e => e.currentTarget.style.opacity = '1'}
             >
@@ -87,7 +93,7 @@ export default function Footer() {
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
           <p style={{ fontFamily: 'var(--mono)', fontSize: '0.46rem', letterSpacing: '0.18em', color: 'var(--t3)' }}>
-            © {new Date().getFullYear()} BLU AGENCY. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} BLU STUDIO · EST. 2023. ALL RIGHTS RESERVED.
           </p>
           <p style={{ fontFamily: 'var(--mono)', fontSize: '0.46rem', letterSpacing: '0.16em', color: 'var(--t3)' }}>
             INTELLIGENCE · ENGINEERED

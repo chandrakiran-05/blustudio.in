@@ -145,7 +145,7 @@ export default function ProblemSection() {
               Every manual<br />process is a<br /><span className="electric">tax on growth.</span>
             </h2>
             <p style={{ fontFamily: 'var(--body)', fontSize: '0.9rem', fontWeight: 300, color: 'var(--t2)', lineHeight: 1.8, marginBottom: '2.2rem', maxWidth: '380px' }}>
-              We ran detailed process audits across 40+ businesses. The same repetitive manual tasks appear every single time, eating hundreds of hours.
+              Over 3+ years of operational audits and systems engineering across 120+ businesses, the same repetitive manual tasks appear every single time, eating hundreds of hours.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
               <div style={{ width: '2rem', height: '1px', background: 'linear-gradient(90deg, var(--accent), transparent)' }} />

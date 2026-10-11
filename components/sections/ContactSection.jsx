@@ -155,21 +155,34 @@ export default function ContactSection() {
                 <span style={{ fontFamily: 'var(--mono)', fontSize: '0.46rem', letterSpacing: '0.2em', color: 'var(--t4)' }}>OR</span>
                 <div style={{ flex: 1, height: '1px', background: 'rgba(0, 82, 255, 0.08)' }} />
               </div>
-              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ justifyContent: 'center', borderRadius: '10px' }}>
-                Message on WhatsApp
+              <a href="https://wa.me/919100894208" target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ justifyContent: 'center', borderRadius: '10px' }}>
+                Message on WhatsApp (+91 9100894208)
               </a>
             </div>
 
             {/* Footer Connect details */}
-            <div style={{ marginTop: '2.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(0, 82, 255, 0.1)', display: 'flex', gap: '3rem' }}>
-              {[{ title: 'DIRECT_SECURE_MAIL', value: 'hello@bluagency.io' }, { title: 'RESPONSE_SLA', value: 'Within 24 Hours' }].map(({ title, value }) => (
+            <div style={{ marginTop: '2.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(0, 82, 255, 0.1)', display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
+              {[
+                { title: 'DIRECT_EMAIL', value: 'chandra@blustudio.in', href: 'mailto:chandra@blustudio.in' },
+                { title: 'PHONE / WHATSAPP', value: '+91 9100894208', href: 'https://wa.me/919100894208' },
+                { title: 'RESPONSE_SLA', value: 'Within 24 Hours' }
+              ].map(({ title, value, href }) => (
                 <div key={title}>
                   <div style={{ fontFamily: 'var(--mono)', fontSize: '0.45rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--t4)', marginBottom: '0.3rem' }}>
                     {title}
                   </div>
-                  <div style={{ fontFamily: 'var(--display)', fontSize: '0.84rem', fontWeight: 500, color: 'var(--t2)' }}>
-                    {value}
-                  </div>
+                  {href ? (
+                    <a href={href} style={{ fontFamily: 'var(--display)', fontSize: '0.84rem', fontWeight: 500, color: 'var(--t2)', textDecoration: 'none', transition: 'color 0.2s' }}
+                      onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
+                      onMouseLeave={e => e.currentTarget.style.color = 'var(--t2)'}
+                    >
+                      {value}
+                    </a>
+                  ) : (
+                    <div style={{ fontFamily: 'var(--display)', fontSize: '0.84rem', fontWeight: 500, color: 'var(--t2)' }}>
+                      {value}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

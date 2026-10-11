@@ -70,7 +70,7 @@ export default function Navbar() {
         <a
           href="#"
           style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', textDecoration: 'none', flexShrink: 0 }}
-          aria-label="BLU Agency home"
+          aria-label="BLU Studio home"
         >
           <div style={{
             width: '32px', height: '32px', borderRadius: '8px',
@@ -90,7 +90,21 @@ export default function Navbar() {
             fontFamily: 'var(--display)', fontWeight: 700, fontSize: '0.92rem',
             color: 'var(--text)', letterSpacing: '-0.02em',
           }}>
-            BLU <span style={{ color: 'var(--accent)', fontWeight: 400 }}>AGENCY</span>
+            BLU <span style={{ color: 'var(--accent)', fontWeight: 400 }}>STUDIO</span>
+          </span>
+          <span style={{
+            fontFamily: 'var(--mono)',
+            fontSize: '0.45rem',
+            letterSpacing: '0.14em',
+            padding: '0.15rem 0.45rem',
+            borderRadius: '4px',
+            background: 'rgba(0, 82, 255, 0.08)',
+            color: 'var(--accent)',
+            fontWeight: 700,
+            border: '1px solid rgba(0, 82, 255, 0.16)',
+            marginLeft: '0.2rem',
+          }}>
+            EST. 2023
           </span>
         </a>
 
